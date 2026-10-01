@@ -22,7 +22,7 @@ streamlit:
   replicaCount: 1
   image:
     repository: ghcr.io/rssubhammohanty/rag-docs-ai-assistant
-    tag: "1.4"
+    tag: latest
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
@@ -58,3 +58,7 @@ ingestion:
 config:
   environment: kubernetes
   chromaPath: /app/chroma_db
+
+secrets:
+  apiKey: ""
+  groqApiKey: ""

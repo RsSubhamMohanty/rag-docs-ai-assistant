@@ -1,6 +1,6 @@
 services:
   api:
-    image: rag-docs-assistant:1.2
+    image: rag-docs-assistant:1.5
     container_name: rag-docs-api
     ports:
       - "8000:8000"
@@ -11,12 +11,14 @@ services:
     restart: unless-stopped
 
   ui:
-    image: rag-docs-assistant:1.2
+    image: rag-docs-assistant:1.5
     container_name: rag-docs-ui
     ports:
       - "8501:8501"
     env_file:
       - .env
+    environment:
+      API_URL: http://api:8000/query
     depends_on:
       - api
     command: >
